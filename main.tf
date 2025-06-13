@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_iam_user" "admin_user" {
     name = "hari"
     tags = {
-        Description = "Admin"
+        Description = "devops user"
     }
 }
 
