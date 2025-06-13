@@ -14,14 +14,11 @@ resource "aws_iam_user" "admin_user" {
 resource "aws_iam_polilcy" "admin_policy" {
     name = "AdminPolicy"
     description = "Admin policy for full access"
-    policy = jsonencode({
-        Version = "2012-10-17"
-        Statement = [
-            {
-                Effect = "Allow"
-                Action = "*"
-                Resource = "*"
-            }
-        ]
-    })
+    policy = file("admin_policy.json")
+}
+
+resource "aws_iam_policy_attachment" "hari-admin-access" {
+    name       = "hari-admin-access"
+    users      = aws_iam_user.admin_user.name
+    policy_arn = aws_iam_polilcy.admin_policy.arn
 }
