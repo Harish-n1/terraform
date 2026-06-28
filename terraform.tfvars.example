@@ -1,0 +1,16 @@
+# Copy this file to terraform.tfvars and adjust values as needed.
+
+aws_region   = "ap-south-1"
+project_name = "eks-demo"
+environment  = "dev"
+
+vpc_cidr           = "10.0.0.0/16"
+az_count           = 2
+single_nat_gateway = true
+
+cluster_version        = "1.29"
+node_instance_types    = ["t3.medium"]
+node_desired_size      = 2
+node_min_size          = 1
+node_max_size          = 4
+endpoint_public_access = true
